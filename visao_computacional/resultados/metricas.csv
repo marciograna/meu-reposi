@@ -1,0 +1,8 @@
+objeto,area_px,perimetro_px,circularidade,retangularidade,classe,x,y,largura,altura
+1,17465.5,494.2,0.8987,0.7974,Circular,76,66,149,149
+2,12098.5,438.2,0.7916,0.9999,Circular,320,60,111,111
+3,11186.0,497.0,0.5692,0.5234,Retangular/Irregular,562,60,157,138
+4,3115.5,208.8,0.8984,0.8105,Circular,439,269,63,63
+5,19799.5,619.4,0.6485,1.0,Retangular/Irregular,60,390,221,91
+6,8256.0,543.2,0.3516,0.4245,Retangular/Irregular,308,384,144,137
+7,11114.0,392.3,0.9073,0.7982,Circular,581,401,119,119
