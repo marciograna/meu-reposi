@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Linux Lab</title>
+<meta name="description" content="Estude comandos do Linux do básico ao avançado: cole um comando e veja o que cada letra faz.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23C15F3C'/%3E%3Cpath d='M8 10l6 6-6 6' stroke='%23FAF9F5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 22h8' stroke='%23FAF9F5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  try {
+    var temaSalvo = localStorage.getItem("linuxlab:tema");
+    if (temaSalvo === "dark" || temaSalvo === "light") document.documentElement.setAttribute("data-theme", temaSalvo);
+  } catch (e) {}
+</script>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="topo">
+    <a class="marca" href="#">
+      <span class="marca-prompt" aria-hidden="true">~$</span>
+      <span>Linux Lab</span>
+    </a>
+    <button id="tema" class="botao-icone" type="button" aria-label="Alternar entre tema claro e escuro">
+      <svg class="icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+      <svg class="icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+    </button>
+  </header>
+
+  <section class="intro">
+    <h1>Comandos do Linux, letra por letra.</h1>
+    <p>Cole um comando e veja o que cada pedaço faz: o <code>l</code> do <code>ls -lha</code>, o <code>f</code> do <code>tar -xzvf</code>, o <code>|</code> entre dois comandos. Depois estude por nível e marque o que já aprendeu.</p>
+  </section>
+
+  <section class="destrinchador" aria-labelledby="titulo-destrinchador">
+    <h2 id="titulo-destrinchador" class="rotulo">Destrinchador</h2>
+    <form id="form-explicar" class="terminal" autocomplete="off">
+      <label for="entrada" class="sr-only">Comando para explicar</label>
+      <span class="prompt" aria-hidden="true">$</span>
+      <input id="entrada" name="entrada" type="text" value="ls -lha" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="ex.: tar -xzvf backup.tar.gz">
+      <button type="submit" class="botao">Explicar</button>
+    </form>
+    <div class="sugestoes">
+      <span class="sugestoes-rotulo">Experimente:</span>
+      <div id="sugestoes" class="sugestoes-lista"></div>
+      <button id="sortear" type="button" class="botao-texto">Exemplo aleatório</button>
+    </div>
+    <div id="resultado" class="resultado" aria-live="polite"></div>
+    <ul class="legenda" aria-label="Legenda das cores">
+      <li><span class="chip c-cmd">comando</span></li>
+      <li><span class="chip c-flag">opção</span></li>
+      <li><span class="chip c-val">valor</span></li>
+      <li><span class="chip c-arg">argumento</span></li>
+      <li><span class="chip c-op">operador</span></li>
+    </ul>
+  </section>
+
+  <section class="estudo" aria-labelledby="titulo-estudo">
+    <div class="estudo-cabeca">
+      <h2 id="titulo-estudo">Comandos por nível</h2>
+      <p id="contagem" class="contagem"></p>
+    </div>
+    <div id="niveis" class="niveis" role="group" aria-label="Filtrar por nível"></div>
+    <div class="filtros">
+      <label class="busca" for="busca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+        <span class="sr-only">Buscar comando</span>
+        <input id="busca" type="search" placeholder="Buscar: grep, permissão, porta, compactar...">
+      </label>
+      <label class="sr-only" for="filtro-status">Filtrar por progresso</label>
+      <select id="filtro-status">
+        <option value="todos">Todos</option>
+        <option value="novo">Ainda não estudei</option>
+        <option value="revisar">Para revisar</option>
+        <option value="aprendi">Aprendidos</option>
+      </select>
+    </div>
+    <div id="lista" class="lista"></div>
+    <p id="vazio" class="vazio" hidden>Nenhum comando com esse filtro. Tente outra palavra ou mude o nível.</p>
+  </section>
+
+  <section class="cola" aria-labelledby="titulo-cola">
+    <h2 id="titulo-cola">Cola de símbolos e atalhos</h2>
+    <dl id="cola" class="cola-grade"></dl>
+  </section>
+
+  <footer class="rodape">
+    <p>O progresso fica salvo só neste navegador. Para ver tudo de um comando no seu terminal: <code>man comando</code>.</p>
+  </footer>
+
+</div>
+<script src="js/comandos.js"></script>
+<script src="js/explicador.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Publica no Netlify apenas o site de estudos (pasta linux-lab).
+# O restante do repositório (app Vulnado) NÃO vai para a internet.
+[build]
+  publish = "linux-lab"
+  command = "echo 'Linux Lab: site estático, nada para compilar'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

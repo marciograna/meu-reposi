@@ -23,3 +23,7 @@ The docker network created by `docker-compose` maps pretty well to a multi-tier 
 * [XSS - Cross Site Scripting](exercises/02-xss.md)
 * [SSRF - Server Side Request Forgery](exercises/03-ssrf.md)
 * [RCE - Remote Code Execution & Reverse Shell](exercises/04-rce-reverse-shell.md)
+
+## Linux Lab (site de estudos)
+
+A pasta [`linux-lab/`](linux-lab/) tem um site estático para estudar comandos do Linux, do básico ao avançado, com um destrinchador que explica cada letra de um comando (`ls -lha`, `tar -xzvf`...). O `netlify.toml` publica **só essa pasta** no Netlify; o Vulnado não vai para a internet. Veja [`linux-lab/README.md`](linux-lab/README.md).
