@@ -1,5 +1,7 @@
 # Reconhecimento de rostos em imagens estáticas (OpenCV)
 
+**Dupla:** Márcio Augusto e Daniel Conceição
+
 Atividade prática de Visão Computacional. Um script em Python detecta rostos em 3 fotos com o
 classificador Haar Cascade do OpenCV. Depois testamos os limites, os parâmetros e a cor e espessura do retângulo.
 
